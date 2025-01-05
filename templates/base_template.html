@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <head>
     <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ]
+          });
+        });
+      </script>
 </head>
 <body>
     <h1>Urmom</h1>
+    <p>Inline formula: $E=mc^2$</p>
+    <p>Block formula:</p>
+    <p>$$
+        \bigcup_{i \in I} \mathcal{P}(A_i) \setminus \bigcap_{j \in J} B_j
+        $$</p>
 </body>
