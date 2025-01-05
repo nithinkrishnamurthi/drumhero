@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import json
 
+
 load_dotenv()
 # Seed information
 SEED_INFORMATION = """
@@ -26,7 +27,7 @@ client = OpenAI(
 
 def get_question(difficulty):
     response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": SEED_INFORMATION},
                 {"role": "user", "content": str(difficulty)}
@@ -35,6 +36,7 @@ def get_question(difficulty):
     print(response)
     decoded_data = json.loads(response.choices[0].message.content)
     print(decoded_data)
+    return decoded_data
 
     
         

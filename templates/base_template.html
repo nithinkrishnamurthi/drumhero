@@ -18,6 +18,14 @@
     <p>Inline formula: $E=mc^2$</p>
     <p>Block formula:</p>
     <p>$$
-        \bigcup_{i \in I} \mathcal{P}(A_i) \setminus \bigcap_{j \in J} B_j
-        $$</p>
+        {{question_data['equation']}}
+        $$
+    </p>
+    <ul>
+    {% for answer in question_data['shuffled_questions']%}
+    <li>
+        {{answer}}
+    </li>
+    {% endfor %}
+    </ul>
 </body>
