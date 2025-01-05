@@ -2,6 +2,7 @@
 <head>
     <title>Hello</title>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
           renderMathInElement(document.body, {
@@ -12,20 +13,46 @@
           });
         });
       </script>
+    <style>
+        @keyframes flash-border {
+        0%, 100% {
+            border-color: transparent;
+        }
+        50% {
+            border-color: red; /* Replace with your desired color */
+        }
+        }
+    
+        .animate-flash {
+        animation: flash-border 1s infinite;
+        }
+    </style>
 </head>
 <body>
-    <h1>Urmom</h1>
-    <p>Inline formula: $E=mc^2$</p>
-    <p>Block formula:</p>
-    <p>$$
-        {{question_data['equation']}}
-        $$
-    </p>
-    <ul>
-    {% for answer in question_data['shuffled_questions']%}
-    <li>
-        {{answer}}
-    </li>
-    {% endfor %}
-    </ul>
+    <div class="container mx-auto p-8">
+        <!-- Heading Section -->
+        <header class="text-center mb-12">
+          <h1 class="text-xl font-bold text-gray-800">
+            $$
+                {{question_data['equation']}}
+            $$
+          </h1>
+        </header>
+      
+        <!-- Two by Two Flex Section -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[80%] mx-auto">
+          <div class="flex items-center justify-center p-8 border rounded-lg bg-gray-100 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-200 animate-flash">
+            <h2 class="text-md font-semibold text-gray-700">{{question_data['shuffled_questions'][0]}}</h2>
+          </div>
+          <div class="flex items-center justify-center p-8 border rounded-lg bg-gray-100 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-200">
+            <h2 class="text-md font-semibold text-gray-700">{{question_data['shuffled_questions'][1]}}</h2>
+          </div>
+          <div class="flex items-center justify-center p-8 border rounded-lg bg-gray-100 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-200">
+            <h2 class="text-md font-semibold text-gray-700">{{question_data['shuffled_questions'][2]}}</h2>
+          </div>
+          <div class="flex items-center justify-center p-8 border rounded-lg bg-gray-100 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-200">
+            <h2 class="text-md font-semibold text-gray-700">{{question_data['shuffled_questions'][3]}}</h2>
+          </div>
+        </section>
+      </div>
 </body>
